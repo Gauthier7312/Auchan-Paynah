@@ -39,3 +39,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-sana-sans-medium), sans-serif;
 }
+
+/* Cache la barre de défilement tout en gardant le scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

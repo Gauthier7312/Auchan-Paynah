@@ -15,7 +15,7 @@ function Button({ children, className, variant = 'primary', size = 'medium', dis
             'w-full rounded-[40px] p-4  text-[20px] text-center transition-colors duration-300 cursor-pointer',
             variant === 'primary' && 'bg-primary text-white hover:bg-primary/80',
             variant === 'secondary' && 'bg-secondary',
-            variant === 'outline' && 'border border-primary',
+            variant === 'outline' && 'border-[3px] border-primary text-primary text-center',
             variant === 'ghost' && 'bg-transparent',
             size === 'small' && 'h-[30px]',
             size === 'medium' && 'h-[40px]',
