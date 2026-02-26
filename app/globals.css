@@ -11,6 +11,8 @@
   --secondary-light: #F3F3F3;
   --secondary-dark: #949494;
   --secondary-darker: #666666;
+  --chart-1: #E0001A;
+  --chart-2: #67B346;
 }
 
 @theme inline {
@@ -40,7 +42,6 @@ body {
   font-family: var(--font-sana-sans-medium), sans-serif;
 }
 
-/* Cache la barre de défilement tout en gardant le scroll */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

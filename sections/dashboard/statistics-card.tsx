@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Select } from '@/components/ui/select';
+import StatisticsChart from '@/sections/dashboard/statistics-chart';
 
 const PERIOD_OPTIONS = [
   { value: '1', label: "Aujourd'hui" },
@@ -14,7 +15,7 @@ export default function StatisticsCard() {
   const [period, setPeriod] = useState('3');
 
   return (
-    <div className="min-w-0 bg-white rounded-[40px] py-6 px-8.5">
+    <div className="min-w-0 bg-white rounded-[40px] py-6 px-8.5 flex flex-col justify-between h-full">
       <div className="flex items-center justify-between">
         <p className="font-sana-sans-bold text-[28px] text-[#444444]">Statistiques</p>
         <div className="min-w-[110px]">
@@ -27,6 +28,8 @@ export default function StatisticsCard() {
           />
         </div>
       </div>
+
+      <StatisticsChart />
     </div>
   );
 }
