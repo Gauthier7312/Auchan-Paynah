@@ -1,10 +1,15 @@
+import { StoreDetailContent } from '@/sections/stores'
 
-export default function StoresPage() {
-    return (
-      <section className='max-w-[1370px] mx-auto pt-8.5'>
-        <h1 className='text-2xl font-bold'>Detail</h1>
-      </section>
-    )
-  }
-  
-  
+type Props = {
+  params: Promise<{ id: string }>
+}
+
+export default async function StoreDetailPage({ params }: Props) {
+  const { id } = await params
+
+  return (
+    <section className="max-w-[1370px] mx-auto mt-8.5">
+      <StoreDetailContent storeId={id} />
+    </section>
+  )
+}

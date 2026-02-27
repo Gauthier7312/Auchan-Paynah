@@ -49,3 +49,100 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Popover datepicker — rendu calendrier */
+.datepicker-popover.block {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+  border-radius: 20px;
+  border: 1px solid #E6E6E6;
+  overflow: hidden;
+  background: #fff;
+}
+.datepicker-popover > div:last-of-type {
+  margin-top: 0.5rem;
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid #E6E6E6;
+  background: #fff;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+}
+.datepicker-popover .font-medium,
+.datepicker-popover .tracking-wide {
+  font-family: var(--font-sana-sans-medium), sans-serif;
+  color: #444;
+}
+.datepicker-popover button.rounded-full:hover {
+  background: var(--primary-lighter);
+  color: var(--primary);
+}
+.datepicker-popover .border-gray-300 {
+  border-color: #E6E6E6;
+}
+.datepicker-popover .text-gray-500 {
+  color: #666;
+}
+.datepicker-popover .bg-red-500,
+.datepicker-popover .bg-red-600 {
+  background-color: var(--primary) !important;
+  border-color: var(--primary);
+}
+.datepicker-popover .border-red-500 {
+  border-color: var(--primary);
+}
+.datepicker-popover .focus\:ring-red-500:focus {
+  --tw-ring-color: var(--primary);
+}
+
+/* DateRangePicker modal — react-day-picker */
+.date-range-picker-content .rdp-root {
+  font-family: var(--font-sana-sans-medium), sans-serif;
+}
+.date-range-picker-content .rdp-selected,
+.date-range-picker-content .rdp-range_start,
+.date-range-picker-content .rdp-range_end {
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
+.date-range-picker-content .rdp-range_middle {
+  background-color: var(--primary-lighter) !important;
+  color: var(--primary);
+}
+.date-range-picker-content .rdp-day_button:hover:not([aria-disabled='true']) {
+  background-color: var(--primary-lighter);
+  color: var(--primary);
+}
+.date-range-picker-content .rdp-chevron {
+  color: #444;
+}
+.date-range-picker-content .rdp-month_caption,
+.date-range-picker-content .rdp-weekday {
+  color: #666;
+  font-weight: 600;
+}
+.date-range-picker-content .rdp-button_previous,
+.date-range-picker-content .rdp-button_next {
+  border-radius: 10px;
+}
+.date-range-picker-content .rdp-button_previous:hover,
+.date-range-picker-content .rdp-button_next:hover {
+  background-color: var(--primary-lighter);
+}
+.date-range-picker-content .rdp-day {
+  border-radius: 10px;
+}
+.date-range-picker-content .rdp-day_button {
+  border-radius: 10px;
+}
+.date-range-picker-content .rdp-day:not([data-selected]) .rdp-day_button:hover {
+  background-color: var(--primary-lighter);
+  color: var(--primary);
+}
+.date-range-picker-content .rdp-month_caption {
+  margin-bottom: 0.75rem;
+}
+.date-range-picker-content .rdp-weeks {
+  gap: 2px;
+}
+.date-range-picker-content .rdp-month_grid {
+  border-spacing: 0 2px;
+}
