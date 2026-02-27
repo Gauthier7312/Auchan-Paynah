@@ -52,7 +52,7 @@ export function HeroHeader() {
             'px-4 sm:px-6 lg:px-9'
           )}
         >
-          <div className="flex items-center gap-4 lg:gap-6 w-full">
+          <div className="flex items-center justify-between gap-4 lg:gap-6 w-full">
             <Link href="/admin/dashboard" aria-label="Accueil" className="shrink-0">
               <Image
                 src="/assets/logo_auchan.svg"

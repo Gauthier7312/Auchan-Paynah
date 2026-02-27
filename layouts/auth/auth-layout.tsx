@@ -18,12 +18,12 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         />
       </div>
 
-      <div className="relative z-10 flex h-[420px] w-full max-w-[474px] flex-col shrink-0 sm:h-[520px] md:h-[670px]">
+      <div className="relative z-10 flex h-full w-full max-w-[474px] flex-col shrink-0 sm:h-[520px] md:h-[670px]">
         <div
           className="absolute -bottom-2 -right-2 h-[calc(100%-12px)] w-[calc(100%-10px)] rounded-[28px] bg-[#FFC7C7] sm:rounded-[37px]"
           aria-hidden
         />
-        <div className="relative flex min-h-0 w-full flex-1 flex-col rounded-[24px] bg-white p-6 shadow-sm sm:rounded-[30px] sm:px-4 sm:py-9 md:min-h-0">
+        <div className="relative flex min-h-0 w-full flex-1 flex-col rounded-[24px] bg-white p-8 shadow-sm sm:rounded-[30px] sm:px-4 sm:py-9 md:min-h-0">
           {children}
         </div>
       </div>
