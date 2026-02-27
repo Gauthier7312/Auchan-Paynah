@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { DateRange, DateRangePicker } from '@/components/ui/date-range-picker'
 import { FilterChip } from '@/components/ui/filter-chip'
 import { IconButton } from '@/components/ui/icon-button'
+import { MaskedValue } from '@/components/ui/masked-value'
 import { SearchInput } from '@/components/ui/search-input'
 import {
   Table,
@@ -175,8 +176,8 @@ export function StoreCaissiersTable({
                 <TableCell className="font-sana-sans-medium text-lg pl-10 w-[20%] align-middle">
                   {item.utilisateur}
                 </TableCell>
-                <TableCell className="font-sana-sans-medium pl-10 w-[18%] align-middle">
-                  {item.cle_acces}
+                <TableCell className="font-sana-sans-medium pl-10 w-[18%] align-middle" onClick={(e) => e.stopPropagation()}>
+                  <MaskedValue value={item.cle_acces} maskLength={4} />
                 </TableCell>
                 <TableCell className="font-sana-sans-medium pl-10 w-[22%] align-middle">
                   {item.date_affectation}
