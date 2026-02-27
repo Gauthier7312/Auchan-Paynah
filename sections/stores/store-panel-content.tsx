@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils"
 import SvgColor from "@/components/svg-color"
 import { Button } from "@/components/ui/button"
 import { IconButton } from "@/components/ui/icon-button"
@@ -12,10 +11,10 @@ type StorePanelContentProps = {
 export default function StorePanelContent({ caissierId, onClose }: StorePanelContentProps) {
   console.warn('caissierId', caissierId)
   return (
-    <div className="flex flex-col justify-start gap-4 max-w-[386px] bg-white rounded-[20px] h-full">
+    <div className="flex flex-col justify-start gap-4 w-full max-w-[386px] bg-white rounded-2xl sm:rounded-[20px] h-full min-w-0">
       <div>
-        <div className="flex items-center justify-between py-6 px-7">
-          <p className="font-sana-sans-bold text-[20px]">OwenJaphet01</p>
+        <div className="flex items-center justify-between py-4 px-4 sm:py-6 sm:px-7">
+          <p className="font-sana-sans-bold text-lg sm:text-[20px] truncate">OwenJaphet01</p>
           <IconButton
             label="Fermer"
             onClick={onClose}
@@ -28,8 +27,8 @@ export default function StorePanelContent({ caissierId, onClose }: StorePanelCon
 
 
       <div>
-        <div className="flex flex-col gap-4 p-6 py-8">
-          <p className="font-sana-sans-bold text-[20px]">Historique magasin</p>
+        <div className="flex flex-col gap-4 p-4 sm:p-6 py-6 sm:py-8">
+          <p className="font-sana-sans-bold text-lg sm:text-[20px]">Historique magasin</p>
         </div>
 
         <Timeline items={TIMELINE_ITEMS} />
@@ -39,8 +38,8 @@ export default function StorePanelContent({ caissierId, onClose }: StorePanelCon
 
         <Separator />
 
-        <div className="flex flex-col gap-5.5 p-6 py-7.5">
-          <p className="font-sana-sans-bold text-[20px]">Dernières transactions</p>
+        <div className="flex flex-col gap-5.5 p-4 sm:p-6 py-6 sm:py-7.5">
+          <p className="font-sana-sans-bold text-lg sm:text-[20px]">Dernières transactions</p>
 
           <div className="flex flex-col gap-3.5">
             {DATA_TRANSACTIONS.map((transaction) => (

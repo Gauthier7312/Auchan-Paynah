@@ -15,10 +15,10 @@ export default function StatisticsCard() {
   const [period, setPeriod] = useState('3');
 
   return (
-    <div className="min-w-0 bg-white rounded-[40px] py-6 px-8.5 flex flex-col justify-between h-full">
-      <div className="flex items-center justify-between">
-        <p className="font-sana-sans-bold text-[28px] text-[#444444]">Statistiques</p>
-        <div className="min-w-[110px]">
+    <div className="min-w-0 bg-white rounded-[40px] py-4 px-5 sm:py-6 sm:px-8.5 flex flex-col justify-between h-full">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <p className="font-sana-sans-bold text-xl sm:text-[28px] text-[#444444]">Statistiques</p>
+        <div className="min-w-0 sm:min-w-[110px]">
           <Select
             name="statistiques"
             id="statistiques"

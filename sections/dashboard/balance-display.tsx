@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 
 export default function BalanceDisplay({ isPriceVisible }: { isPriceVisible: boolean }) {
     return (
-        <div className="relative min-h-[100px] flex flex-col justify-center">
+        <div className="relative min-h-[200px] sm:min-h-[200px] lg:min-h-[210px] flex flex-col justify-center">
             <div
                 className={cn(
                     'flex flex-col font-sana-sans-heavy text-[40px] absolute inset-0 justify-end transition-opacity duration-300 ease-in-out',
@@ -20,7 +20,7 @@ export default function BalanceDisplay({ isPriceVisible }: { isPriceVisible: boo
 
             <div
                 className={cn(
-                    'flex flex-col font-sana-sans-heavy text-[40px] absolute inset-0 justify-center transition-opacity duration-300 ease-in-out',
+                    'flex flex-col font-sana-sans-heavy text-[40px] absolute inset-0 justify-end transition-opacity duration-300 ease-in-out',
                     isPriceVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 )}
                 aria-hidden={!isPriceVisible}

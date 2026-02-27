@@ -74,62 +74,70 @@ export function StoreTransactionsTable({
   const filteredData = filterRowsByType(data, filter)
 
   return (
-    <div className={cn('bg-white rounded-[40px] w-full overflow-hidden', className)}>
-      <div className="flex items-center justify-between pb-5.5 px-8">
-        <p className="font-sana-sans-bold text-[28px] text-black">Transactions</p>
+    <div className={cn('bg-white rounded-[32px] lg:rounded-[40px] min-w-0 w-full overflow-hidden', className)}>
+      <div className="flex flex-col gap-4 py-4 px-4 sm:py-5.5 sm:px-6 lg:px-8 pb-5.5">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <p className="font-sana-sans-bold text-xl sm:text-[28px] text-black shrink-0">Transactions</p>
 
-        <div className="flex items-center gap-3.5">
-          <SearchInput placeholder="Type, point de vente, n° client, n° d'avoir..." wrapperClassName="w-[308px]" className="text-xs" />
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-3.5 min-w-0">
+            <SearchInput
+              placeholder="Type, point de vente, n° client, n° d'avoir..."
+              wrapperClassName="w-full min-w-0 lg:w-[308px]"
+              className="text-xs"
+            />
 
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              {FILTER_OPTIONS.map((opt) => (
-                <FilterChip
-                  key={opt.value}
-                  active={filter === opt.value}
-                  onClick={() => setFilter(opt.value)}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+              <div className="flex flex-wrap items-center gap-2">
+                {FILTER_OPTIONS.map((opt) => (
+                  <FilterChip
+                    key={opt.value}
+                    active={filter === opt.value}
+                    onClick={() => setFilter(opt.value)}
+                  >
+                    {opt.label}
+                  </FilterChip>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2 sm:gap-3">
+                <DateRangePicker
+                  value={dateRange as DateRange}
+                  onChange={setDateRange}
+                  placeholder="Début - Fin"
+                />
+                <button
+                  type="button"
+                  className="flex flex-col items-center justify-center gap-2 cursor-pointer shrink-0 p-1"
+                  onClick={() => setDateRange({ from: undefined, to: undefined })}
+                  aria-label="Réinitialiser les dates"
                 >
-                  {opt.label}
-                </FilterChip>
-              ))}
+                  <SvgColor src="/assets/icons/ic_reset.svg" className="w-4.5 h-4.5 text-[#444444]" />
+                </button>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <DateRangePicker
-                value={dateRange as DateRange}
-                onChange={setDateRange}
-                placeholder="Début - Fin"
-              />
-
-              <button type="button" className="flex flex-col items-center justify-center gap-2 cursor-pointer" onClick={() => setDateRange({ from: undefined, to: undefined })}>
-                <SvgColor src="/assets/icons/ic_reset.svg" className="w-4.5 h-4.5 text-[#444444]" />
-              </button>
+            <div className="shrink-0">
+              <Button
+                type="button"
+                size="medium"
+                className="flex flex-col items-center justify-center rounded-[10px] h-[42px] sm:h-[44px] w-full sm:w-[144px]"
+                onClick={onExport}
+              >
+                <span className="font-sana-sans-bold text-sm sm:text-base text-white">Exporter</span>
+              </Button>
             </div>
-
           </div>
-
-        </div>
-
-        <div>
-          <Button
-            type="button"
-            size="medium"
-            className="flex flex-col items-center justify-center rounded-[10px] h-[44px] w-[144px]"
-            onClick={onExport}
-          >
-            <span className="font-sana-sans-bold text-base text-white">Exporter</span>
-          </Button>
         </div>
       </div>
 
-      <div>
-        <Table className="w-full pb-0">
+      <div className="overflow-x-auto px-2 sm:px-0">
+        <Table className="w-full min-w-[640px] sm:min-w-0 pb-0">
           <TableHeader className="bg-[#F6F6F6]">
             <TableRow className="h-[30px] border-[#E6E6E6] hover:bg-[#F6F6F6]">
               {DATA_HEADER.map((header) => (
                 <TableHead
                   key={header.key}
-                  className="font-sana-sans-medium text-[#666666] pl-10 text-sm"
+                  className="font-sana-sans-medium text-[#666666] pl-4 sm:pl-10 text-xs sm:text-sm"
                 >
                   {header.label}
                 </TableHead>
@@ -139,19 +147,19 @@ export function StoreTransactionsTable({
           <TableBody>
             {filteredData.map((item) => (
               <TableRow key={item.id}>
-                <TableCell className="font-sana-sans-medium pl-10">
+                <TableCell className="font-sana-sans-medium pl-4 sm:pl-10">
                   {item.id}
                 </TableCell>
-                <TableCell className="font-sana-sans-bold text-lg pl-10">
+                <TableCell className="font-sana-sans-bold text-sm sm:text-lg pl-4 sm:pl-10">
                   {item.type_transaction}
                 </TableCell>
-                <TableCell className="font-sana-sans-medium pl-10">
+                <TableCell className="font-sana-sans-medium pl-4 sm:pl-10">
                   {item.montant}
                 </TableCell>
-                <TableCell className="font-sana-sans-medium pl-10">
+                <TableCell className="font-sana-sans-medium pl-4 sm:pl-10">
                   {item.client}
                 </TableCell>
-                <TableCell className="font-sana-sans-medium pl-10">
+                <TableCell className="font-sana-sans-medium pl-4 sm:pl-10">
                   {item.date}
                 </TableCell>
               </TableRow>

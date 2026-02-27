@@ -29,14 +29,14 @@ type StoreStatisticsChartProps = {
 export function StoreStatisticsChart({
   data = DEFAULT_CHART_DATA,
   config = DEFAULT_CHART_CONFIG,
-  size = 120,
+  size = 110,
 }: StoreStatisticsChartProps) {
   const legendItems = [...data].sort(
     (a, b) => (LEGEND_ORDER[a.name] ?? 99) - (LEGEND_ORDER[b.name] ?? 99)
   )
 
   return (
-    <div className="flex items-center gap-7">
+    <div className="flex items-center gap-4">
       <ChartContainer
         config={config}
         className="shrink-0"

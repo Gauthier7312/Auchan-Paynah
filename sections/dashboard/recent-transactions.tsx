@@ -22,34 +22,34 @@ const items = [
 
 function RecentTransactions() {
   return (
-    <div className='bg-white rounded-[40px] min-w-[933px]'>
-      <div className="flex items-center justify-between py-5.5 px-8">
-        <p className="font-sana-sans-bold text-[28px] text-[#444444]">Transactions récentes</p>
-        <div>
+    <div className="bg-white rounded-2xl sm:rounded-[32px] lg:rounded-[40px] min-w-0 w-full overflow-hidden">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 px-4 sm:py-5.5 sm:px-6 lg:px-8">
+        <p className="font-sana-sans-bold text-xl sm:text-[28px] text-[#444444]">Transactions récentes</p>
+        <div className="shrink-0">
           <Button variant="outline" size="medium" className="flex flex-col items-center justify-center rounded-[10px]">
-            <Link href="/admin/dashboard/transactions" className="font-sana-sans-bold text-[18px] text-primary">Toutes les transactions &gt;</Link>
+            <Link href="/admin/dashboard/transactions" className="font-sana-sans-bold text-base sm:text-[18px] text-primary">Toutes les transactions &gt;</Link>
           </Button>
         </div>
       </div>
 
-      <div className=" pb-10">
-        <Table className="w-full">
-          <TableHeader className=" bg-[#F6F6F6] ">
+      <div className="pb-6 sm:pb-10 overflow-x-auto px-4 sm:px-0">
+        <Table className="w-full min-w-[600px] sm:min-w-0">
+          <TableHeader className="bg-[#F6F6F6]">
             <TableRow className="h-[30px]">
               {DATA_HEADER.map((header) => (
-                <TableHead key={header.key} className="font-sana-sans-medium text-[#666666] pl-8 text-sm">{header.label}</TableHead>
+                <TableHead key={header.key} className="font-sana-sans-medium text-[#666666] pl-4 sm:pl-8 text-xs sm:text-sm">{header.label}</TableHead>
               ))}
             </TableRow>
           </TableHeader>
           <TableBody>
             {items.map((item) => (
               <TableRow key={item.id}>
-                <TableCell className="font-sana-sans-bold text-lg pl-8">{item.type_transaction}</TableCell>
-                <TableCell className="font-sana-sans-medium pl-8">{item.magasin}</TableCell>
-                <TableCell className="font-sana-sans-medium pl-8">{item.montant}</TableCell>
-                <TableCell className="font-sana-sans-medium pl-8">{item.client}</TableCell>
-                <TableCell className="font-sana-sans-medium pl-8">{item.date}</TableCell>
-                <TableCell className="font-sana-sans-medium pl-8">
+                <TableCell className="font-sana-sans-bold text-sm sm:text-lg pl-4 sm:pl-8">{item.type_transaction}</TableCell>
+                <TableCell className="font-sana-sans-medium text-sm pl-4 sm:pl-8">{item.magasin}</TableCell>
+                <TableCell className="font-sana-sans-medium text-sm pl-4 sm:pl-8">{item.montant}</TableCell>
+                <TableCell className="font-sana-sans-medium text-sm pl-4 sm:pl-8">{item.client}</TableCell>
+                <TableCell className="font-sana-sans-medium text-xs sm:text-base pl-4 sm:pl-8">{item.date}</TableCell>
+                <TableCell className="font-sana-sans-medium pl-4 sm:pl-8">
                     <button className="w-[28px] h-[28px] rounded-[10px] flex items-center justify-center hover:bg-[#F2F2F2] transition-colors duration-300 cursor-pointer">
                         <Image src="/assets/icons/ic_list.svg" alt="eye" width={12} height={10} />
                     </button>
