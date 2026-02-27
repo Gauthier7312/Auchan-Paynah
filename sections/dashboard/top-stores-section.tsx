@@ -29,7 +29,7 @@ export default function TopStoresSection() {
 
       <div className="scrollbar-hide flex items-center gap-5 mt-6.5 overflow-x-auto flex-nowrap">
         {Array.from({ length: 5 }).map((_, index) => (
-          <StoreCard key={index} />
+          <StoreCard key={index} id={String(index + 1)} />
         ))}
       </div>
     </div>
