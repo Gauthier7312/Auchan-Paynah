@@ -42,7 +42,7 @@ export default function LoginPage() {
               Saisissez vos identifiants pour vous connecter
             </p>
 
-            <div className="flex flex-col gap-5 w-[374px] mt-[42px]">
+            <div className="flex flex-col gap-5 w-[300px] sm:w-[374px] mt-[42px] mb-4">
               <RHFTextField name="email" label="Identifiant" type="email" />
               <RHFTextField name="password" label="Mot de passe" type="password" />
 
