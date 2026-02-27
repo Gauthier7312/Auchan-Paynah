@@ -2,26 +2,32 @@ import React from 'react'
 import Image from 'next/image'
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
-    return (
-        <main
-            className="flex flex-col items-center justify-center w-full min-h-screen bg-primary relative overflow-hidden"
-        >
-            <div className="absolute top-[190px] center-0 w-[1436px] h-[1330px] opacity-100 ">
-                <Image
-                    src="/assets/auchan_.svg"
-                    alt="Auchan"
-                    fill
-                    className="object-contain object-top opacity-100"
-                />
-            </div>
+  return (
+    <main className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-primary px-4 py-6 sm:px-6 sm:py-8">
+      <div
+        className="pointer-events-none absolute bottom-0 left-1/2 h-[min(1330px,80vh)] w-[min(1436px,100vw)] -translate-x-1/2"
+        aria-hidden
+      >
+        <Image
+          src="/assets/auchan_.svg"
+          alt=""
+          fill
+          className="object-contain object-bottom opacity-100"
+          sizes="(max-width: 768px) 100vw, 1436px"
+          priority
+        />
+      </div>
 
-            <div className='w-[474px] h-[682px] bg-transparent z-10 relative'>
-                <div className='w-[464px] h-[670px] bg-[#FFC7C7] rounded-[37px] absolute bottom-0 right-0 -z-10' />
-                <div className='w-[464px] h-[670px] bg-white rounded-[30px] pl-[37px] pr-4 py-[37px]'>
-                    {children}
-                </div>
-            </div>
-        </main>
-    )
+      <div className="relative z-10 flex h-[420px] w-full max-w-[474px] flex-col shrink-0 sm:h-[520px] md:h-[670px]">
+        <div
+          className="absolute -bottom-2 -right-2 h-[calc(100%-12px)] w-[calc(100%-10px)] rounded-[28px] bg-[#FFC7C7] sm:rounded-[37px]"
+          aria-hidden
+        />
+        <div className="relative flex min-h-0 w-full flex-1 flex-col rounded-[24px] bg-white p-6 shadow-sm sm:rounded-[30px] sm:px-4 sm:py-9 md:min-h-0">
+          {children}
+        </div>
+      </div>
+    </main>
+  )
 }
 

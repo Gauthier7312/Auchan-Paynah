@@ -10,7 +10,9 @@ type Props = {
 export default function FormProvider({ children, onSubmit, methods }: Props) {
   return (
     <Form {...methods}>
-      <form onSubmit={onSubmit} className='h-full'>{children}</form>
+      <form onSubmit={onSubmit} className="flex h-full min-h-0 flex-col">
+        {children}
+      </form>
     </Form>
   );
 }

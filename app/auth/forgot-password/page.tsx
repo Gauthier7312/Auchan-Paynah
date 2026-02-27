@@ -29,28 +29,34 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <FormProvider methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
-      <div className="flex flex-col justify-between items-center h-full">
-        <div>
-          <p className="font-sana-sans-heavy text-4xl leading-16">Mot de passe oublié</p>
-          <p className="font-sana-sans-medium text-[20px] -mt-2">
-            Veuillez entrer votre adresse email pour réinitialiser votre mot de passe
-          </p>
+    <div className="flex min-h-0 flex-1 flex-col">
+      <FormProvider methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
+        <div className="flex min-h-0 flex-1 flex-col items-center justify-between">
+          <div className="w-full max-w-[374px]">
+            <p className="font-sana-sans-heavy text-3xl leading-tight sm:text-4xl">
+              Mot de passe oublié
+            </p>
+            <p className="font-sana-sans-medium mt-1 text-base sm:mt-2 sm:text-[20px]">
+              Veuillez entrer votre adresse email pour réinitialiser votre mot de passe
+            </p>
 
-          <div className="flex flex-col gap-5 w-[374px] mt-[42px]">
-            <RHFTextField name="email" label="Email" type="email" />
+            <div className="mt-8 flex w-full flex-col gap-5 sm:mt-10">
+              <RHFTextField name="email" label="Email" type="email" />
+            </div>
+          </div>
+
+          <div className="mt-auto w-full max-w-[355px] pt-4 sm:pt-6">
+            <Button
+              type="submit"
+              variant="primary"
+              size="large"
+              className="w-full font-sana-sans-heavy font-normal"
+            >
+              Continuer
+            </Button>
           </div>
         </div>
-
-        <Button
-          type="submit"
-          variant="primary"
-          size="large"
-          className="max-w-[355px] font-sana-sans-heavy font-normal mb-2.5"
-        >
-          Continuer
-        </Button>
-      </div>
-    </FormProvider>
+      </FormProvider>
+    </div>
   );
 }

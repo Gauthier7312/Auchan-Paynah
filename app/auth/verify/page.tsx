@@ -57,42 +57,48 @@ export default function VerifyPage() {
   };
 
   return (
-    <FormProvider methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
-      <div className="flex flex-col justify-between items-center h-full">
-        <div>
-          <p className="font-sana-sans-heavy text-4xl leading-16">Code OTP</p>
-          <p className="font-sana-sans-medium leading-snug text-[20px] -mt-2 pr-8">
-            Veuillez saisir le code OTP reçu par message sur votre adresse email
-          </p>
-
-          <div className="flex flex-col gap-5 w-[374px] mt-[42px]">
-            <RHFOTP name="code" maxLength={4} />
-            <p className="font-sana-sans-medium text-base">
-              Pas encore reçu ?{' '}
-              <span className="text-secondary-dark text-base">
-                {formatCountdown(countdown)}
-              </span>{' '}
-              <button
-                type="button"
-                onClick={handleResend}
-                disabled={countdown > 0}
-                className="font-sana-sans-medium-italic text-primary text-base pl-5 disabled:opacity-50 disabled:cursor-not-allowed hover:underline"
-              >
-                Renvoyez
-              </button>
+    <div className="flex min-h-0 flex-1 flex-col">
+      <FormProvider methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
+        <div className="flex min-h-0 flex-1 flex-col items-center justify-between">
+          <div className="w-full max-w-[374px]">
+            <p className="font-sana-sans-heavy text-3xl leading-tight sm:text-4xl">
+              Code OTP
             </p>
+            <p className="font-sana-sans-medium mt-1 leading-snug text-base text-[#444444] pr-0 sm:mt-2 sm:pr-8 sm:text-[20px]">
+              Veuillez saisir le code OTP reçu par message sur votre adresse email
+            </p>
+
+            <div className="mt-8 flex w-full flex-col gap-5 sm:mt-10">
+              <RHFOTP name="code" maxLength={4} />
+              <p className="font-sana-sans-medium text-sm sm:text-base">
+                Pas encore reçu ?{' '}
+                <span className="text-secondary-dark text-base">
+                  {formatCountdown(countdown)}
+                </span>{' '}
+                <button
+                  type="button"
+                  onClick={handleResend}
+                  disabled={countdown > 0}
+                  className="font-sana-sans-medium-italic text-primary pl-2 text-sm hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded disabled:cursor-not-allowed disabled:opacity-50 sm:pl-5 sm:text-base"
+                >
+                  Renvoyez
+                </button>
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-auto w-full max-w-[355px] pt-4 sm:pt-6">
+            <Button
+              type="submit"
+              variant="primary"
+              size="large"
+              className="w-full font-sana-sans-heavy font-normal"
+            >
+              Valider
+            </Button>
           </div>
         </div>
-
-        <Button
-          type="submit"
-          variant="primary"
-          size="large"
-          className="max-w-[355px] font-sana-sans-heavy font-normal mb-2.5"
-        >
-          Valider
-        </Button>
-      </div>
-    </FormProvider>
+      </FormProvider>
+    </div>
   );
 }
