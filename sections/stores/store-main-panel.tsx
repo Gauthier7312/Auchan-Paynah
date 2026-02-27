@@ -2,21 +2,21 @@
 
 import Link from 'next/link'
 import SvgColor from '@/components/svg-color'
-import { useStoreDetailTab, type StoreTabValue } from './store-detail-search'
+import { useStoreDetailTab, useStoreSelectedCaissierId, type StoreTabValue } from './store-detail-search'
 import { StoreStatisticsChart } from './store-statistics-chart'
 import { StoreDetailTabs, StoreDetailTabsTab } from './store-detail-tabs'
 import { StoreTransactionsTable, StoreCaissiersTable } from './tables'
 
-type StoreMainPanelProps = {
-  onOpenRightPanel: () => void
-  buttonLabel?: string
-}
-
-export function StoreMainPanel({
-  onOpenRightPanel,
-  buttonLabel = 'Afficher le panneau droit',
-}: StoreMainPanelProps) {
+export function StoreMainPanel() {
   const [tab, setTab] = useStoreDetailTab()
+  const [, setSelectedCaissierId] = useStoreSelectedCaissierId()
+
+  const handleTabChange = (v: StoreTabValue) => {
+    setTab(v)
+    if (v === 'transactions') {
+      setSelectedCaissierId(null)
+    }
+  }
 
   const tabsData: StoreDetailTabsTab[] = [
     {
@@ -30,7 +30,7 @@ export function StoreMainPanel({
       content: <StoreCaissiersTable />,
     }
   ]
-  
+
   return (
     <div className="min-w-0">
       <div className="flex items-center gap-4">
@@ -68,17 +68,9 @@ export function StoreMainPanel({
         <StoreDetailTabs
           tabs={tabsData}
           value={tab}
-          onValueChange={(v) => setTab(v as StoreTabValue)}
+          onValueChange={(v) => handleTabChange(v as StoreTabValue)}
         />
       </div>
-
-      <button
-        type="button"
-        onClick={onOpenRightPanel}
-        className="mt-4 px-4 py-2 bg-primary text-white rounded-[10px] font-sana-sans-bold text-sm hover:opacity-90"
-      >
-        {buttonLabel}
-      </button>
     </div>
   )
 }

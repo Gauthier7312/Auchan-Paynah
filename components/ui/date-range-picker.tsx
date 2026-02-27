@@ -103,7 +103,7 @@ export function DateRangePicker({
         aria-expanded={open}
         aria-label="Choisir une plage de dates"
         className={cn(
-          'h-[36px] min-w-[184px] items-center justify-center rounded-[18px] bg-[#E6E6E6] px-4 text-[12px] font-sana-sans-italic text-[#949494] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary/30 placeholder:text-[#949494]',
+          'h-[36px] min-w-[178px] items-center justify-center rounded-[18px] bg-[#E6E6E6] px-4 text-[12px] font-sana-sans-italic text-[#949494] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary/30 placeholder:text-[#949494]',
           triggerClassName
         )}
       >

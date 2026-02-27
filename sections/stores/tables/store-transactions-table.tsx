@@ -75,7 +75,7 @@ export function StoreTransactionsTable({
 
   return (
     <div className={cn('bg-white rounded-[40px] w-full overflow-hidden', className)}>
-      <div className="flex items-center justify-between pb-5.5 px-10">
+      <div className="flex items-center justify-between pb-5.5 px-8">
         <p className="font-sana-sans-bold text-[28px] text-black">Transactions</p>
 
         <div className="flex items-center gap-3.5">
@@ -94,7 +94,7 @@ export function StoreTransactionsTable({
               ))}
             </div>
 
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3">
               <DateRangePicker
                 value={dateRange as DateRange}
                 onChange={setDateRange}
@@ -114,10 +114,10 @@ export function StoreTransactionsTable({
           <Button
             type="button"
             size="medium"
-            className="flex flex-col items-center justify-center rounded-[10px] h-[46px] w-[144px]"
+            className="flex flex-col items-center justify-center rounded-[10px] h-[44px] w-[144px]"
             onClick={onExport}
           >
-            <span className="font-sana-sans-bold text-[18px] text-white">Exporter</span>
+            <span className="font-sana-sans-bold text-base text-white">Exporter</span>
           </Button>
         </div>
       </div>
@@ -139,7 +139,7 @@ export function StoreTransactionsTable({
           <TableBody>
             {filteredData.map((item) => (
               <TableRow key={item.id}>
-                <TableCell className="font-sana-sans-medium text-lg pl-10">
+                <TableCell className="font-sana-sans-medium pl-10">
                   {item.id}
                 </TableCell>
                 <TableCell className="font-sana-sans-bold text-lg pl-10">

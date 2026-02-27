@@ -1,10 +1,11 @@
 'use client'
 
-import { parseAsStringLiteral, useQueryState } from 'nuqs'
+import { parseAsString, parseAsStringLiteral, useQueryState } from 'nuqs'
 
 export const STORE_TAB_PARAM = 'tab' as const
 export const STORE_FILTER_PARAM = 'filter' as const
 export const STORE_CAISSIER_FILTER_PARAM = 'caissierFilter' as const
+export const STORE_SELECTED_CAISSIER_ID_PARAM = 'caissierId' as const
 
 export const STORE_TAB_VALUES = ['transactions', 'caissiers'] as const
 export type StoreTabValue = (typeof STORE_TAB_VALUES)[number]
@@ -31,4 +32,8 @@ const storeCaissierFilterParser = parseAsStringLiteral(STORE_CAISSIER_FILTER_VAL
 
 export function useStoreCaissierFilter() {
   return useQueryState(STORE_CAISSIER_FILTER_PARAM, storeCaissierFilterParser)
+}
+
+export function useStoreSelectedCaissierId() {
+  return useQueryState(STORE_SELECTED_CAISSIER_ID_PARAM, parseAsString)
 }

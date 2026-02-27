@@ -42,7 +42,7 @@ export function StoreDetailTabs({
       defaultValue={controlledValue === undefined ? initialValue : undefined}
       onValueChange={onValueChange}
     >
-      <TabsList className={cn('w-fit mx-10', tabsListClassName)}>
+      <TabsList className={cn('w-fit mx-8', tabsListClassName)}>
         {tabs?.map((tab) => (
           <TabsTrigger key={tab.value} value={tab.value}>
             {tab.label}

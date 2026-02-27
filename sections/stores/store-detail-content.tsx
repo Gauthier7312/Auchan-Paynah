@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useStoreSelectedCaissierId } from './store-detail-search'
 import { cn } from '@/lib/utils'
 import StorePanelContent from './store-panel-content'
 import { StoreMainPanel } from './store-main-panel'
@@ -10,32 +10,34 @@ type StoreDetailContentProps = {
 }
 
 export default function StoreDetailContent({ storeId }: StoreDetailContentProps) {
-  const [isRightOpen, setRightOpen] = useState(false)
+  const [selectedCaissierId, setSelectedCaissierId] = useStoreSelectedCaissierId()
+  const isRightOpen = selectedCaissierId !== null && selectedCaissierId !== undefined
 
   const handleCloseRightPanel = () => {
-    setRightOpen(false)
+    setSelectedCaissierId(null)
   }
 
-  const handleOpenRightPanel = () => {
-    setRightOpen(true)
-  }
+  console.warn('storeId', storeId)
 
   return (
     <>
       <div
         className={cn(
           'grid gap-4 transition-[grid-template-columns] duration-300',
-          isRightOpen ? 'grid-cols-1 lg:grid-cols-[1fr_386px]' : 'grid-cols-1'
+          isRightOpen ? 'grid-cols-1 lg:grid-cols-[1fr_378px]' : 'grid-cols-1'
         )}
       >
-        <StoreMainPanel onOpenRightPanel={handleOpenRightPanel} />
+        <StoreMainPanel />
 
         {isRightOpen && (
           <>
             <div
-              className="hidden lg:block min-w-0 w-full max-w-[386px] bg-white rounded-[40px] p-6 animate-panel-fade-in"
+              className="hidden lg:block min-w-0 w-full  animate-panel-fade-in"
             >
-              <StorePanelContent title="Panneau droit" onClose={handleCloseRightPanel} />
+              <StorePanelContent
+                caissierId={selectedCaissierId}
+                onClose={handleCloseRightPanel}
+              />
             </div>
 
             <div className="lg:hidden fixed inset-0 z-50">
@@ -45,11 +47,14 @@ export default function StoreDetailContent({ storeId }: StoreDetailContentProps)
                 aria-hidden
               />
               <div
-                className="absolute top-0 right-0 bottom-0 w-[min(100%,386px)] bg-white rounded-l-[40px] p-6 shadow-lg overflow-auto animate-panel-fade-in"
+                className="absolute top-0 right-0 bottom-0 w-[min(100%,386px)] h-full overflow-auto animate-panel-fade-in"
                 role="dialog"
-                aria-label="Panneau droit"
+                aria-label="OwenJaphet01"
               >
-                <StorePanelContent title="Panneau droit" onClose={handleCloseRightPanel} />
+                <StorePanelContent
+                  caissierId={selectedCaissierId}
+                  onClose={handleCloseRightPanel}
+                />
               </div>
             </div>
           </>
