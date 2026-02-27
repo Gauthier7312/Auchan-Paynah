@@ -44,7 +44,7 @@ export default function StorePanelContent({ caissierId, onClose }: StorePanelCon
 
           <div className="flex flex-col gap-3.5">
             {DATA_TRANSACTIONS.map((transaction) => (
-              <div className="flex items-center justify-between">
+              <div key={transaction.id} className="flex items-center justify-between">
                 <p className="font-sana-sans-bold text-lg ">{transaction.type_transaction} </p>
                 <p className="font-sana-sans-medium text-base">{transaction.montant}</p>
               </div>
