@@ -52,7 +52,7 @@ export function HeroHeader() {
             'px-4 sm:px-6 lg:px-9'
           )}
         >
-          <div className="flex items-center justify-between gap-2 sm:gap-2.5 w-full">
+          <div className="flex items-center gap-4 lg:gap-6 w-full">
             <Link href="/admin/dashboard" aria-label="Accueil" className="shrink-0">
               <Image
                 src="/assets/logo_auchan.svg"
@@ -63,14 +63,14 @@ export function HeroHeader() {
               />
             </Link>
 
-            <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <ul className="flex gap-2.5 items-center">
+            <div className="hidden lg:flex flex-1 justify-center min-w-0">
+              <ul className="flex flex-wrap items-center justify-center gap-5">
                 {menuItems.map((item, index) => (
                   <li key={index}>
                     <Link
                       href={item.href}
                       className={cn(
-                        'text-base xl:text-lg font-sana-sans-bold block duration-200 px-2 py-1.5 rounded-[10px]',
+                        'text-base xl:text-lg font-sana-sans-bold block duration-200 px-2.5 py-1.5 rounded-[10px] whitespace-nowrap',
                         isActive(item)
                           ? 'bg-primary text-white'
                           : 'hover:text-black/70'
@@ -83,7 +83,7 @@ export function HeroHeader() {
               </ul>
             </div>
 
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <button
                 type="button"
                 onClick={() => setMenuOpen(true)}
@@ -106,7 +106,7 @@ export function HeroHeader() {
             aria-label="Fil d'Ariane"
             className={cn(
               'absolute left-6 right-6 sm:left-6 sm:right-6 lg:left-0 lg:right-0 lg:px-0',
-              'top-[56px] sm:top-[60px] lg:top-[51px]',
+              'top-[46px] sm:top-[60px] lg:top-[51px]',
               'bg-[#FFE8E8] min-h-[56px] sm:min-h-[64px] lg:min-h-[78px] rounded-b-[10px]',
               'px-3 sm:px-4 lg:px-5 py-2 sm:py-[7px] flex items-end'
             )}

@@ -15,19 +15,19 @@ const dayPickerClassNames = {
   month: 'rdp-month',
   month_caption: 'rdp-month_caption flex items-center justify-between pb-3',
   caption_label: 'rdp-caption_label font-sana-sans-bold text-[17px] text-[#444444]',
-  nav: 'rdp-nav flex items-center gap-1',
-  button_previous: 'rdp-button_previous h-9 w-9 rounded-[10px] flex items-center justify-center text-[#444444] hover:bg-[#FFE8E8] hover:text-primary transition-colors',
-  button_next: 'rdp-button_next h-9 w-9 rounded-[10px] flex items-center justify-center text-[#444444] hover:bg-[#FFE8E8] hover:text-primary transition-colors',
+  nav: 'rdp-nav flex items-center hidden gap-1',
+  button_previous: 'rdp-button_previous hidden h-9 w-9 rounded-[10px] flex items-center justify-center text-[#444444] hover:bg-[#FFE8E8] hover:text-primary transition-colors',
+  button_next: 'rdp-button_next h-9 w-9 hidden rounded-[10px] flex items-center justify-center text-[#444444] hover:bg-[#FFE8E8] hover:text-primary transition-colors',
   weekdays: 'rdp-weekdays',
   weekday: 'rdp-weekday font-sana-sans-bold text-[13px] text-[#666666] py-2',
   week: 'rdp-week',
   day: 'rdp-day p-0.5',
   day_button: 'rdp-day_button h-9 w-9 rounded-[10px] font-sana-sans-medium transition-colors',
-  footer: 'rdp-footer mt-4 pt-4 border-t border-[#E6E6E6] text-center',
-  range_start: 'rdp-range_start bg-primary text-white hover:bg-primary hover:text-white',
-  range_end: 'rdp-range_end bg-primary text-white hover:bg-primary hover:text-white',
-  range_middle: 'rdp-range_middle bg-[#FFE8E8] text-primary hover:bg-[#FFE8E8] hover:text-primary',
-  selected: 'rdp-selected bg-primary text-white hover:bg-primary hover:text-white',
+  footer: 'rdp-footer mt-4 pt-4 hidden border-t border-[#E6E6E6] text-center',
+  range_start: 'rdp-range_start bg-[#FFE8E8] text-primary hover:bg-[#FFD4DA] hover:text-primary',
+  range_end: 'rdp-range_end bg-[#FFE8E8] text-primary hover:bg-[#FFD4DA] hover:text-primary',
+  range_middle: 'rdp-range_middle bg-[#FFE8E8] text-primary hover:bg-[#FFD4DA] hover:text-primary',
+  selected: 'rdp-selected bg-[#FFE8E8] text-primary hover:bg-[#FFD4DA] hover:text-primary',
   today: 'rdp-today font-sana-sans-bold text-primary',
   outside: 'rdp-outside text-[#E6E6E6]',
   disabled: 'rdp-disabled opacity-40 cursor-not-allowed',
@@ -125,18 +125,18 @@ export function DateRangePicker({
             onClick={handleBackdropClick}
             aria-hidden
           />
-          <div className="date-range-picker-content relative z-10 w-full max-w-[min(90vw,720px)] rounded-[24px] bg-white p-6 shadow-xl">
-            <div className="mb-4 flex items-center justify-between">
-              <h2 className="font-sana-sans-bold text-[20px] text-[#444444]">
+          <div className="date-range-picker-content relative z-10 w-full max-w-[min(90vw,720px)] sm:max-w-[400px] rounded-[24px] bg-white p-4 shadow-xl">
+            <div className="mb-2 flex items-center justify-end">
+              {/* <h2 className="font-sana-sans-bold text-[20px] text-[#444444]">
                 Choisir une plage de dates
-              </h2>
+              </h2> */}
               <button
                 type="button"
                 onClick={handleClose}
                 className="rounded-[10px] p-2 text-[#949494] transition-colors hover:bg-[#F6F6F6] hover:text-[#444444]"
                 aria-label="Fermer"
               >
-                ✕
+                <SvgColor src="/assets/icons/ic_close.svg" className="w-4 h-4 text-[#949494]" />
               </button>
             </div>
 
